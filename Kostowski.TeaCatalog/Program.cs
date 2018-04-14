@@ -13,12 +13,21 @@ namespace Kostowski.TeaCatalog.UI
         static void Main(string[] args)
         {
             DataProvider dp = new DataProvider();
-            System.Console.WriteLine("Producers:");
+            System.Console.WriteLine("Baza 1:");
+            System.Console.WriteLine(" Producers:");
             foreach (var p in dp.ProducersList)
-                System.Console.WriteLine($" {p.Name} founded in {p.Founded}");
-            System.Console.WriteLine("Products:");
+                System.Console.WriteLine($"  {p.Name} founded in {p.Founded}");
+            System.Console.WriteLine(" Products:");
             foreach (var t in dp.TeaList)
-                System.Console.WriteLine($" Name: {t.Name}, producer: {t.Producer.Name}, color: {t.Color}");
+                System.Console.WriteLine($"  Name: {t.Name}, producer: {t.Producer.Name}, color: {t.Color}");
+            System.Console.WriteLine("Baza 2:");
+            dp.switchDAO(2);
+            System.Console.WriteLine(" Producers:");
+            foreach (var p in dp.ProducersList)
+                System.Console.WriteLine($"  {p.Name} founded in {p.Founded}");
+            System.Console.WriteLine(" Products:");
+            foreach (var t in dp.TeaList)
+                System.Console.WriteLine($"  Name: {t.Name}, producer: {t.Producer.Name}, color: {t.Color}");
         }
     }
 }
