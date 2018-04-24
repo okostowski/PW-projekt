@@ -7,7 +7,7 @@ using Kostowski.TeaCatalog.Interfaces;
 
 namespace Kostowski.TeaCatalog.DAOMock2
 {
-    class Producer : IProducer
+    public class Producer : IProducer
     {
         public string Name { get; set; }
         public int Founded { get; set; }

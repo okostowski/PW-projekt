@@ -8,7 +8,7 @@ using Kostowski.TeaCatalog.Core;
 
 namespace Kostowski.TeaCatalog.DAOMock
 {
-    class Tea : IProduct
+    public class Tea : IProduct
     {
         public IProducer Producer { get; set; }
         public string Name { get; set; }

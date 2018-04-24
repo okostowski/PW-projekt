@@ -11,7 +11,7 @@ namespace Kostowski.TeaCatalog.BLC
 {
     public class DataProvider
     {
-        Settings settings = new Settings();
+        private Settings _settings = new Settings();
         public IDAO DAO { get; set; }
         public IEnumerable<IProduct> TeaList
         {
@@ -25,18 +25,19 @@ namespace Kostowski.TeaCatalog.BLC
         public void switchDAO(int nb)
         {
             if (nb == 1)
-                settings.DAOName = "DAOMock";
+                _settings.DAOName = "DAOMock";
             else
-                settings.DAOName = "DAOMock2";
-            settings.Save();
+                _settings.DAOName = "DAOMock2";
+            _settings.Save();
             loadDatabase();
         }
-
+        
         private void loadDatabase()
         {
-            Assembly a = Assembly.UnsafeLoadFrom(@"C:\Users\Oskar\Desktop\pw\PW-projekt\"+settings.DAOName+".dll");
-            Type t = a.GetType("Kostowski.TeaCatalog."+ settings.DAOName+".DAO");
-            ConstructorInfo constructorInfo = t.GetConstructor(new Type[] {  });            var o = constructorInfo.Invoke(new object[] {  });
+            Assembly a = Assembly.UnsafeLoadFrom(System.IO.Directory.GetParent(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString() +"/"+_settings.DAOName+".dll");
+            Type t = a.GetType("Kostowski.TeaCatalog."+ _settings.DAOName+".DAO");
+            ConstructorInfo constructorInfo = t.GetConstructor(new Type[] {  });
+            var o = constructorInfo.Invoke(new object[] {  });
             DAO = (IDAO) o;
         }
 
