@@ -22,5 +22,14 @@ namespace Kostowski.TeaCatalog.WPFGUI.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DAOMock")]
+        public string DAO_Name {
+            get {
+                return ((string)(this["DAO_Name"]));
+            }
+        }
     }
 }

@@ -9,33 +9,33 @@ namespace Kostowski.TeaCatalog.DAOMock
 {
     public class DAO : IDAO
     {
-        private List<IProducer> producersList;
-        private List<IProduct> teaList;
+        private List<IProducer> _producersList;
+        private List<IProduct> _teaList;
 
         public DAO()
         {
-            producersList = new List<IProducer>
+            _producersList = new List<IProducer>
             {
                 new Producer {Name="Lipton", Founded=1890},
                 new Producer {Name="Tetley", Founded=1837},
                 new Producer {Name="Dilmah", Founded=1988}
             };
-            teaList = new List<IProduct>
+            _teaList = new List<IProduct>
             {
-                new Tea {Producer=producersList[0], Name="Yellow Label Tea", Color=Core.Color.Black},
-                new Tea {Producer=producersList[1], Name="Tetley Pure Green Tea", Color=Core.Color.Green},
-                new Tea {Producer=producersList[2], Name="Dilmah Lemon", Color=Core.Color.Black}
+                new Tea {Producer=_producersList[0], Name="Yellow Label Tea", Color=Core.Color.Black},
+                new Tea {Producer=_producersList[1], Name="Tetley Pure Green Tea", Color=Core.Color.Green},
+                new Tea {Producer=_producersList[2], Name="Dilmah Lemon", Color=Core.Color.Black}
             };
         }
 
         public IEnumerable<IProduct> GetAllTea()
         {
-            return teaList;
+            return _teaList;
         }
 
         public IEnumerable<IProducer> GetAllProducers()
         {
-            return producersList;
+            return _producersList;
         }
     }
 }

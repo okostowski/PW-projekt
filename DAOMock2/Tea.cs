@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kostowski.TeaCatalog.Interfaces;
+using Kostowski.TeaCatalog.Core;
 
-namespace Kostowski.TeaCatalog.DAOMock
+namespace Kostowski.TeaCatalog.DAOMock2
 {
-    public class Producer : IProducer
+    public class Tea : IProduct
     {
+        public IProducer Producer { get; set; }
         public string Name { get; set; }
-        public int Founded { get; set; }
+        public Color Color { get; set; }
     }
 }

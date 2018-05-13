@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Kostowski.TeaCatalog.Interfaces;
 using System.Collections.ObjectModel;
 using Kostowski.TeaCatalog.BLC;
+using Kostowski.TeaCatalog.WPFGUI.Properties;
 
 namespace WPFGUI
 {
@@ -23,6 +24,8 @@ namespace WPFGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Settings _settings = new Settings();
+
         private ObservableCollection<IProduct> _products;
         public ObservableCollection<IProduct> Products
         {
@@ -32,7 +35,7 @@ namespace WPFGUI
 
         public MainWindow()
         {
-            DataProvider dp = new DataProvider();
+            DataProvider dp = new DataProvider(_settings.DAO_Name);
             _products = new ObservableCollection<IProduct>(dp.TeaList);
             InitializeComponent();
         }

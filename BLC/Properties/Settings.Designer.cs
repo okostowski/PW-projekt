@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kostowski.TeaCatalog.UI.Properties {
+namespace Kostowski.TeaCatalog.BLC.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,15 +20,6 @@ namespace Kostowski.TeaCatalog.UI.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DAOMock")]
-        public string DAO_Name {
-            get {
-                return ((string)(this["DAO_Name"]));
             }
         }
     }

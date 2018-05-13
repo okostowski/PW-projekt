@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Kostowski.TeaCatalog.Interfaces;
 
-namespace Kostowski.TeaCatalog.DAOMock
+namespace Kostowski.TeaCatalog.DAOMock2
 {
     public class Producer : IProducer
     {
