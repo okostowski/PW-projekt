@@ -37,5 +37,44 @@ namespace Kostowski.TeaCatalog.DAOMock
         {
             return _producersList;
         }
+
+        public IProducer AddNewProducer()
+        {
+            Producer p = new Producer();
+            p.Founded = 0;
+            p.Name = "";
+            return (IProducer)p;
+        }
+
+        public IProduct AddNewProduct()
+        {
+            Tea t = new Tea();
+            t.Name = "";
+            return (IProduct)t;
+        }
+
+        public void SaveProduct(IProduct p)
+        {
+            if(!_teaList.Contains(p))
+                _teaList.Add(p);
+        }
+
+        public void SaveProducer(IProducer p)
+        {
+            if(!_producersList.Contains(p))
+                _producersList.Add(p);
+        }
+
+        public void DeleteProduct(IProduct p)
+        {
+            if(_teaList.Contains(p))
+                _teaList.Remove(p);
+        }
+
+        public void DeleteProducer(IProducer p)
+        {
+            if(_producersList.Contains(p))
+                _producersList.Remove(p);
+        }
     }
 }

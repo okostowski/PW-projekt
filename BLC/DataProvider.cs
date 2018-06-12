@@ -20,9 +20,10 @@ namespace Kostowski.TeaCatalog.BLC
             get { return DAO.GetAllProducers(); }
         }
         
-        private void loadDatabase(String path)
+
+        public DataProvider(String path)
         {
-            Assembly a = Assembly.UnsafeLoadFrom(path+".dll");
+            Assembly a = Assembly.UnsafeLoadFrom(path + ".dll");
             Type t = null;
             foreach (Type t1 in a.GetTypes())
             {
@@ -32,14 +33,40 @@ namespace Kostowski.TeaCatalog.BLC
                     break;
                 }
             }
-            ConstructorInfo constructorInfo = t.GetConstructor(new Type[] {  });
-            var o = constructorInfo.Invoke(new object[] {  });
-            DAO = (IDAO) o;
+            ConstructorInfo constructorInfo = t.GetConstructor(new Type[] { });
+            var o = constructorInfo.Invoke(new object[] { });
+            DAO = (IDAO)o;
         }
 
-        public DataProvider(String path)
+        public IProduct addNewProduct()
         {
-            loadDatabase(path);
+            return DAO.AddNewProduct();
+        }
+
+        public IProducer addNewProducer()
+        {
+            return DAO.AddNewProducer();
+        }
+
+        public void saveProduct(IProduct p)
+        {
+            DAO.SaveProduct(p);
+        }
+
+        public void SaveProducer(IProducer p)
+        {
+            DAO.SaveProducer(p);
+        }
+        
+        public void DeleteProduct(IProduct p)
+        {
+            DAO.DeleteProduct(p);
+        }
+
+        public void DeleteProducer(IProducer p)
+        {
+            DAO.DeleteProducer(p);
         }
     }
+   
 }

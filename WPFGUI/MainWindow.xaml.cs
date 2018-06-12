@@ -19,24 +19,16 @@ using Kostowski.TeaCatalog.WPFGUI.Properties;
 
 namespace WPFGUI
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        private Settings _settings = new Settings();
+        static public DataProvider Provider;
 
-        private ObservableCollection<IProduct> _products;
-        public ObservableCollection<IProduct> Products
-        {
-            get { return _products; }
-            set { _products = value; }
-        }
+        private Settings _settings = new Settings();
 
         public MainWindow()
         {
-            DataProvider dp = new DataProvider(_settings.DAO_Name);
-            _products = new ObservableCollection<IProduct>(dp.TeaList);
+            if (Provider == null)
+                Provider = new DataProvider(_settings.DAO_Name);
             InitializeComponent();
         }
     }

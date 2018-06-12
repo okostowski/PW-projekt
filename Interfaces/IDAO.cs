@@ -10,5 +10,14 @@ namespace Kostowski.TeaCatalog.Interfaces
     {
         IEnumerable<IProduct> GetAllTea();
         IEnumerable<IProducer> GetAllProducers();
+
+        IProducer AddNewProducer();
+        IProduct AddNewProduct();
+
+        void SaveProduct(IProduct p);
+        void SaveProducer(IProducer p);
+
+        void DeleteProduct(IProduct p);
+        void DeleteProducer(IProducer p);
     }
 }

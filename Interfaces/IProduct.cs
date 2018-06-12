@@ -12,5 +12,7 @@ namespace Kostowski.TeaCatalog.Interfaces
         IProducer Producer { get; set; }
         string Name { get; set; }
         Color Color { get; set; }
+
+        
     }
 }
